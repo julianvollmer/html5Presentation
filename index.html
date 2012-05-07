@@ -1,0 +1,421 @@
+<!doctype html>  
+<html lang="en">
+	
+	<head>
+		<meta charset="utf-8">
+		
+		<title>HTML5 : postmortem de 284 jeux</title>
+		
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/zenburn.css">
+	</head>
+	
+	<body>
+		
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div id="main">
+			
+			<section>
+				<h1>HTML5 pour les jeux</h1>
+				<h3 class="inverted">Post mortem de 300 prods</h3>
+				<script>
+					// Delicously hacky. Look away.
+					if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
+					document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
+				</script><br/>
+				<footer>
+					Par <a href='doulcet.fr'>Pierre-Loic Doulcet</a> pour <a href='parisjs.org'>Paris.js</a><br/><br/><br/><br/>
+					<h3>retrouvez ces slides sur : doulcet.fr/parisjs</h3>
+				</footer>
+			</section>
+
+			<section>
+				<h1>Hier sind die Events</h1>
+				<h3 class="inverted">Post mortem de <s>300</s> <b>284</b> prods</h3>
+				<script>
+					// Delicously hacky. Look away.
+					if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
+					document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
+				</script>
+				<br/>
+				<footer>
+					Par <a href='doulcet.fr'>Pierre-Loic Doulcet</a> pour <a href='parisjs.org'>Paris.js</a>
+<br/><br/><br/><br/>
+					<h3>retrouvez ces slides sur : doulcet.fr/parisjs</h3>
+				</footer>
+			</section>
+
+			<section>
+				<br/><br/><br/>
+				<h1>Etat de l'art </h1>
+			</section>
+
+			<section>
+				<h2>W3C Game comunity group</h2>
+				
+				<a href='http://www.w3.org/community/games/'>http://www.w3.org/community/games/</a>
+				<br/><br/>
+				<p>
+					<b>Objectif (entre autre)</b>:  Receuillir les avis des developpeurs de jeux et faire des propositions concernant les standarts ouverts.
+				</p>
+			</section>
+
+
+			<section>
+				<h2>PointerLock (W3C Editor Draft)</h2>
+				<b>Chrome Canary + NaCl, FF13, Opera CORE-44964 (not on roadmap)</b>
+<p>Ajout des methodes  requestPointerLock et  exitPointerLock</p>
+		<pre><code contenteditable>
+document.requestPointerLock();
+// La sourie est lockee
+document.exitPointerLock();
+		</code></pre>	
+		
+				<p>Ajouts au Mouse Event de movementX / movementY :</p>
+				<pre><code contenteditable>function onclick(event)
+{
+	event.movementX;
+	event.movementY;
+}</code></pre>
+			</section>
+
+	<section>
+				<h2>Joystick  API (W3C Editor Draft)</h2>
+				<b>Chrome 17, Opera C-45220</b>
+<p>Ajout de l'interface Gamepad a navigator</p>
+		<pre><code contenteditable>
+var gamepad = navigator.gamepads[0];
+var id = gamepad.id;
+var lastDataAccess = gamepad.timestamp; // Date des dernieres donnees
+var axe0 = gamepad.axes[0]; // Contient une valeur de -1.0 a 1.0
+var button0 = gamepad.buttons[0]; // Contient une valeur de 0 a 1.0
+		</code></pre>	
+		
+<p>Ajouts des evenements gamepadconnected et gamepaddisconnected </p>
+<pre><code contenteditable>
+document.addEventListener('gamepadconnected ', function(){alert('Le Gamepad est in')});
+document.addEventListener('gamepaddisconnected ', function(){alert('Le Gamepad est out')});
+</code></pre>
+</section>
+
+<section>
+	<h2>Webworkers : Transferable objects (W3C Editor Draft optional)</h2>
+	<b>Chrome 17</b>
+<p>Permet de transferer des ArrayBuffer vers et entre les Workers. <br/><a href='http://html5-demos.appspot.com/static/workers/transferables/index.html'>Demo</a></p>
+
+
+</section>
+
+
+<section>
+	<h2>Vector/Matrix in Javascript (early early draft, Q3 2012?)</h2>
+	<p>
+		Ajout d'un type Matrix4x4 a Javascript
+	</p>
+<pre><code contenteditable>
+	// Note : se construit en passant une Matrix CSS :D
+var m = new Matrix4x4('matrix3d(0.7109, 0, -0.703279, 0, 0, 1, 0, 0, 0.703279, 0, 0.7109, 0, 0, 0, 0, 1);');
+
+m.invert(); 						// inverse la matrix
+m.translate(x, y, z); 				// translate la matrix
+m.scale(scaleX, scaleY, scaleZ);	// scale la matrix
+m.rotate(rotX, rotY, rotZ);			// rotate la matrix
+
+</code></pre>
+</section>
+	
+<section>
+	<h2>Web audio API (W3C Editor's Draft)</h2>
+	<br/><br/><br/><h1>:-D</h1><br/>
+	<a href='http://www.html5rocks.com/en/tutorials/webaudio/games/'>HTML5 Rocks : web audio in games</a>
+</section>
+
+
+			<section>
+					<br/></br>			<h2>284 prods en 2 ans</h2>
+			</section>
+
+			<section>
+					<h2>284 prods en 2 ans</h2>
+					<ul>
+						<li> Personelles : 37 (26 Desktop, 11 Mobile)</li>
+						<li> Etudiants : 247 (47 en Jam, 70 em Exam, 130 autres)</li>
+					</ul>
+			</section>
+
+			<section>
+
+				2010
+				<p><a href='http://pxdraw.com/atome.html'><img src='gatome.png' /></a></p>
+			</section>
+			<section>
+
+				2011
+				<p><a href='http://pierreloicdoulcet.fr/dbclick/'><img src='cavernman.png' /></a></p>
+			</section>
+			<section>
+
+				2012
+				<p><a href='http://pierreloicdoulcet.fr/moon/'><img src='moon.png' /></a></p>
+			</section>
+
+			<section>
+				Students : <br/><br/>
+				<a href='http://gameweek.gameisart.com/try-the-games/'> Game week</a><br/>
+				<a href='http://mekawar.com/'> Mekawar</a>
+			</section>
+
+			<section>
+				<h1>Techniques Secretes </h1>
+			</section>
+
+			<section>
+				<h3>Global Alpha</h3>
+				
+				<p>
+					<canvas onclick='canvas78()' id='canvas78' width='800px' height='200px'>
+						Click Me !
+					</canvas>
+				</p>
+
+				<script>
+
+					
+
+						function runner78()
+						{
+							c78.fillStyle = '#000';
+							c78.globalAlpha = 0.01;
+							c78.fillRect(0,0,800,200);
+							c78.globalAlpha = 1.0;
+							c78.fillStyle = '#fff';
+							var i = 0;
+							while (i++ < 10)
+							{
+								c78.fillRect(
+									(Math.random() * 80 | 0) * 10+ 1,
+									(Math.random() * 20 | 0) * 10+ 1,
+									8,
+									8);
+							}
+							setTimeout(runner78, 5);
+						}
+
+						var c78 =  document.getElementById('canvas78').getContext('2d');
+
+						window.canvas78 = function()
+						{
+							
+							
+							c78.fillStyle = '#000';
+							c78.fillRect(0,0,800,200);
+							runner78();	
+						}
+					
+				</script>
+
+
+				<pre><code contenteditable>
+function run()
+{
+	ctx.fillStyle = '#000';
+	ctx.globalAlpha = 0.1;
+	ctx.fillRect(0,0,800,200);
+	ctx.globalAlpha = 1.0;
+	ctx.fillStyle = '#fff';
+	var i = 0;
+	while (i++ < 10)
+	{
+		ctx.fillRect(
+			(Math.random() * 80 | 0) * 10+ 1,
+			(Math.random() * 20 | 0) * 10+ 1,
+			8, 8);
+	}
+	setTimeout(run, 16);
+}
+				</code></pre>
+				</p>
+			</section>
+			
+
+		<section>
+				<h3>Canvas Offscreen</h3>
+
+				<pre><code contenteditable>
+function renderToCanvas(width, height, renderFunction)
+{
+    var buffer = document.createElement('canvas');
+    buffer.width = width;
+    buffer.height = height;
+    renderFunction(buffer.getContext('2d'));
+    return buffer;
+};
+var img = renderToCanvas(width, height, function(ctx){
+	var i = 0;
+	while (i < 10000)
+	{
+		ctx.fillRect(
+		 Math.random() * 1000 | 0,
+		 Math.random() * 1000,
+		 1,1);
+		++i;
+	}
+});
+// on rend l'image chargee en offscreen
+context.drawImage(img, 0, 0);
+
+				</code></pre>
+				</p>
+			</section>
+
+<section>
+				<h4>Utiliser Image Data pour les particles si no WebGl</h4>
+		<p>
+					<canvas onclick='canvas79()' id='canvas79' width='800px' height='200px'>
+						Click Me !
+					</canvas>
+				</p>
+				<input type='range' onchange='document.getElementById("v79").innerHTML = this.value' min=100 max=100000 range=100 id='r79' value=100 style='width : 700px'/><span id='v79'>100</span>
+				<script>
+
+					
+
+						function runner79()
+						{
+							c79.fillStyle = '#000';
+							c79.fillRect(0,0,800,200);
+							image = c79.getImageData(0, 0, 800, 200);
+
+							var imageData = image.data;
+
+							var j = 0;
+							var m = document.getElementById('r79').value;
+							while (j < m)
+							{
+							 var i = Math.random() * 800 * 200 | 0;
+							 imageData[i * 4+0] = 255; // Red value
+							 imageData[i * 4+1] = 255; // Green value
+							 imageData[i * 4+2] = 255; // Blue value
+							 imageData[i * 4+3] = 255; // Alpha value
+
+							 image.data = imageData;
+							 ++j;
+							}
+							c79.putImageData(image, 0, 0);
+							setTimeout(runner79, 5);	
+						}
+
+						var c79 =  document.getElementById('canvas79').getContext('2d');
+
+						window.canvas79 = function()
+						{
+							
+							
+							c79.fillStyle = '#000';
+							c79.fillRect(0,0,800,200);
+							runner79();	
+						}
+					
+				</script>
+				<pre><code contenteditable>
+image = ctx.getImageData(0, 0, 800, 600);
+
+var imageData = image.data;
+
+var j = 0;
+
+while (j < 20000)
+{
+ var i = Math.random() * 800 * 200 | 0;
+ imageData[i * 4+0] = 255; // Red value
+ imageData[i * 4+1] = 255; // Green value
+ imageData[i * 4+2] = 255; // Blue value
+ imageData[i * 4+3] = 255; // Alpha value
+
+ image.data = imageData;
+ ++j;
+}
+ctx.putImageData(image, 0, 0);
+				</code></pre>
+				</p>
+			</section>
+
+			<section>
+				<h1>MORE ?</h1>
+			</section>
+
+			<section>
+				<a href='HTML5Gamedojo.com'><h1>HTML5Gamedojo.com</h1></a>
+			</section>
+			<section>
+				<h3>By the way I'm soon unemployed...</h3>
+
+			</section>
+			<section>
+				<h1>Questions?</h1>
+				<br/>
+				<h2>@hexapode</h2>
+				<h2>pierre@doulcet.fr</h2>
+				<h3>retrouvez ces slides sur : doulcet.fr/parisjs</h3>
+			</section>
+		</div>
+		
+		<aside class="controls">
+			<a class="left" href="#">&#x25C4;</a>
+			<a class="right" href="#">&#x25BA;</a>
+			<a class="up" href="#">&#x25B2;</a>
+			<a class="down" href="#">&#x25BC;</a>
+		</aside>
+
+		<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+		<div class="progress"><span></span></div>
+		
+		<script src="js/reveal.js"></script>
+		<script src="lib/highlight.js"></script>
+		<script>
+			// Parse the query string into a key/value object
+			var query = {};
+			location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
+				query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
+			} );
+
+			Reveal.initialize({
+				// Display controls in the bottom right corner
+				controls: true,
+
+				// Display a presentation progress bar
+				progress: true,
+
+				// Apply a 3D roll to links on hover
+				rollingLinks: true,
+
+				// UI style
+				theme: query.theme || 'default', // default/neon
+
+				// Transition style
+				transition: query.transition || 'default' // default/box/page/concave/linear(2d),
+			});
+
+			hljs.initHighlightingOnLoad();
+		</script>
+
+
+		<!-- Everything below this point is unrelated to the slideshow -->
+		
+
+		<script type="text/javascript">
+			  var _gaq = _gaq || [];
+			  _gaq.push(['_setAccount', 'UA-686690-8']);
+			  _gaq.push(['_trackPageview']);
+			  (function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			  })();
+		</script> 
+		
+	</body>
+</html>

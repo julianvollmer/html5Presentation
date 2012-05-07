@@ -1,0 +1,164 @@
+.content {
+	background-color:#eee;
+	width: 960px;
+	height: 80%;
+	text-align:center;
+	margin:auto;
+        position: absolute;
+        top: 50%;
+        left: 5%;
+        bottom: 50%;
+        right: 5%; 
+}
+.content2 {
+	background-color:#eee;
+	width: 960px;
+	height: 80%;
+	text-align:center;
+	margin:auto;
+        position: absolute;
+        top: 50%;
+        left: 5%;
+        bottom: 50%;
+        right: 5%; 
+}
+
+
+
+.contentAnimated {
+
+	-webkit-animation: myfirst 1s; /* Safari and Chrome */	
+         -webkit-animation-fill-mode: forwards;
+}
+.contentAnimatedBack {
+	-webkit-animation: myfirst2 1s; /* Safari and Chrome */	
+         -webkit-animation-fill-mode: forwards;
+}
+
+
+@-webkit-keyframes myfirst /* Safari and Chrome */
+{
+from {
+		opacity:1;
+	}
+to {
+		
+                opacity:0;
+	}
+}
+
+@-webkit-keyframes myfirst2 /* Safari and Chrome */
+{
+from {
+		opacity:0;
+	}
+to {
+		
+                opacity:1;
+	}
+}
+
+
+html, body { 
+	background-color: #caf;
+	margin: 0;
+	padding: 0;
+        height: 100%;
+	
+}
+
+#lala {
+	width:100%;
+}
+#lala td {
+	width:50%;	
+}
+footer {
+position:fixed;
+	width:100%;
+}
+#buttonsstyle {
+	width:100%;
+	height:80px;
+	/*vielleicht mit calc versuchen*/
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #ffa200;
+	padding: 10px 20px;
+	background: -moz-linear-gradient(
+		top,
+		#ffffff 0%,
+		#ffffff 50%,
+		#d6d6d6);
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#ffffff),
+		color-stop(0.50, #ffffff),
+		to(#d6d6d6));
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border: 3px solid #ffbf00;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 3px rgba(255,255,255,1);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 3px rgba(255,255,255,1);
+	text-shadow:
+		0px -1px 0px rgba(000,000,000,0.1),
+		0px 1px 0px rgba(255,255,255,1);
+}
+
+#buttonsstyle:hover
+{
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-play-state: paused;
+	animation:moveContent 1s;
+	-moz-animation:moveContent 1s; /* Firefox */
+	-webkit-animation:moveContent 1s; /* Safari and Chrome */
+}
+#buttonsstyle:active {
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-play-state: running;
+	animation:moveContent 1s;
+	-moz-animation:moveContent 1s; /* Firefox */
+	-webkit-animation:moveContent 1s; /* Safari and Chrome */
+}
+@-webkit-keyframes moveContent {
+0%  	{ 	-moz-transform:scale(0.9);
+			-webkit-transform:scale(0.9);
+		}
+25%  	{ 	-moz-transform:scale(1.2);
+			-webkit-transform:scale(1.2);
+		}
+75%  	{ 	-moz-transform:scale(0.9);
+			-webkit-transform:scale(0.9);
+		}
+}
+
+
+@-moz-keyframes moveContent /* Firefox */
+{
+0%  	{ 	-moz-transform:scale(0.9);
+			-webkit-transform:scale(0.9);
+		}
+25%  	{ 	-moz-transform:scale(1.2);
+			-webkit-transform:scale(1.2);
+		}
+75%  	{ 	-moz-transform:scale(0.9);
+			-webkit-transform:scale(0.9);
+		}
+}	
+
+@keyframes moveContent {
+0%  	{ 	-moz-transform:scale(0.9);
+			-webkit-transform:scale(0.9);
+		}
+25%  	{ 	-moz-transform:scale(1.2);
+			-webkit-transform:scale(1.2);
+		}
+75%  	{ 	-moz-transform:scale(0.9);
+			-webkit-transform:scale(0.9);
+		}
+}
